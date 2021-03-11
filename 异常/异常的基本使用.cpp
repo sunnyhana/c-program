@@ -7,7 +7,8 @@ int mydevide(int a, int b)
     {
         //eturn -1;
         //throw -1;    //!抛出整型异常
-        throw 1.34; //!  抛出double异常，异常必须处理，
+        //throw 1.34; //!  抛出double异常，异常必须处理，
+        throw 'a';
     }
     return a / b;
 }
@@ -28,6 +29,10 @@ void test1()
     catch (double)
     {
         cout << "捕获double型异常" << endl;
+    }
+    catch (...)
+    {
+        cout << "其他类型异常捕获" << endl;
     }
 }
 
