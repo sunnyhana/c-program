@@ -1,5 +1,13 @@
 #include <iostream>
 using namespace std;
+class myException
+{
+public:
+    void printError()
+    {
+        cout << "自定义异常" << endl;
+    }
+};
 
 int mydevide(int a, int b)
 {
@@ -8,7 +16,8 @@ int mydevide(int a, int b)
         //eturn -1;
         //throw -1;    //!抛出整型异常
         //throw 1.34; //!  抛出double异常，异常必须处理，
-        throw 'a';
+        //throw 'a';
+        throw myException(); //!  匿名对象
     }
     return a / b;
 }
@@ -28,8 +37,15 @@ void test1()
     }
     catch (double)
     {
+        throw; //? 如果不想处理异常可以继续向上抛出
         cout << "捕获double型异常" << endl;
     }
+
+    catch (myException e)
+    {
+        e.printError();
+    }
+
     catch (...)
     {
         cout << "其他类型异常捕获" << endl;
@@ -38,6 +54,13 @@ void test1()
 
 int main()
 {
-    test1();
+    try
+    {
+        test1();
+    }
+    catch (double) //!   如果异常都没有处理，那么编译器会调出terminate函数,使程序中断。
+    {
+        cout << "main 捕获double型异常" << endl;
+    }
     return 0;
 }
