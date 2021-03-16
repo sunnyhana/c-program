@@ -117,8 +117,35 @@ void test4()
 
 //!容器嵌套容器
 
+void test5()
+{
+    vector<vector<int>> v;
+    vector<int> v1;
+    vector<int> v2;
+    vector<int> v3;
+
+    for (int i = 0; i < 5; i++)
+    {
+        v1.push_back(i);
+        v2.push_back(i + 10);
+        v3.push_back(i + 100);
+    }
+
+    v.push_back(v1);
+    v.push_back(v2);
+    v.push_back(v3);
+
+    for (vector<vector<int>>::iterator It = v.begin(); It != v.end(); It++)
+    {
+        for (vector<int>::iterator it = (*It).begin(); it != (*It).end(); it++) //?  It指向V1、V2、V3；（*It）等价与小容器
+        {
+            cout << *it << endl;
+        }
+    }
+}
+
 int main()
 {
-    test4();
+    test5();
     return 0;
 }
