@@ -139,8 +139,9 @@ void test5()
     {
         for (vector<int>::iterator it = (*It).begin(); it != (*It).end(); it++) //?  It指向V1、V2、V3；（*It）等价与小容器
         {
-            cout << *it << endl;
+            cout << *it;
         }
+        cout << endl;
     }
 }
 
