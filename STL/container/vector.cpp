@@ -47,10 +47,69 @@ void test2()
     cout << "v4的内容：";
     printVector(v4);
 }
+void test3()
+{
+    vector<int> v;
+    for (int i = 0; i < 10000; i++)
+    {
+        v.push_back(i);
+    }
+    cout << "容量：" << v.capacity() << endl;
+    cout << "大小" << v.size() << endl;
+    v.resize(3);
+
+    cout << "容量： " << v.capacity() << endl;
+    cout << "大小: " << v.size() << endl;
+
+    //?   巧用swap
+    vector<int>(v).swap(v); //todo     vector<int>(v)利用v初始化匿名对象
+    cout << "容量：" << v.capacity() << endl;
+    cout << "大小" << v.size() << endl;
+}
+
+void test4()
+{
+    //todo      front();返回容器中第一个元素
+    //todo      back();返回容器中最后一个元素
+    vector<int> v;
+    v.push_back(10);
+    v.push_back(20);
+    v.push_back(30);
+    v.push_back(40);
+    cout << "v的front：" << v.front() << endl;
+    cout << "v的back：" << v.back() << endl;
+
+    v.insert(v.begin(), 100); //*   insert (const_iterator pos,int count ,ele) 在pos处插入count个ele;
+    printVector(v);
+    v.pop_back();
+    printVector(v);
+}
+void test5()
+{
+    vector<int> v;
+    for (int i = 0; i < 10; i++)
+    {
+        v.push_back(i);
+    }
+    //todo   正序遍历
+    printVector(v);
+
+    //todo   逆序遍历，迭代器要使用   reverse_iterator
+    for (vector<int>::reverse_iterator it = v.rbegin(); it != v.rend(); it++)
+    {
+        cout << *it << "  ";
+    }
+
+    cout << endl;
+}
 
 int main()
 {
     //test1();
-    test2();
+    //test2();
+    //test3();
+    //test4();
+    test5();
+
     return 0;
 }
