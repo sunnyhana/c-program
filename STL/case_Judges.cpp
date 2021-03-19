@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include <algorithm>
 #include <vector>
 #include <deque>
@@ -49,7 +50,7 @@ void test()
     {
         for (int i = 0; i < 10; i++)
         {
-            itv->d.push_back(rand() % 61 + 60);
+            itv->d.push_back(rand() % 41 + 60);
         }
     }
     int i = 0;
@@ -65,6 +66,8 @@ void test()
 
 int main()
 {
+    //?设置随机数种子
+    srand((unsigned int)time(NULL));
 
     test();
     return 0;
