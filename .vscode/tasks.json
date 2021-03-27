@@ -7,10 +7,12 @@
 			"command": "/usr/bin/g++",
 			"args": [
 				"-g",
-				"${file}",
+				"${workspaceFolder}\\wall.c",				
+				"/home/hana/zw/c-program/STL/case_GluttonousSnake/wall.cpp",//贪吃蛇案例源文件
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
 				"-std=c++17"
+
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"
