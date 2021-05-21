@@ -14,7 +14,7 @@
                 "/usr/include/x86_64-linux-gnu"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "/usr/bin/clang-10",
             "intelliSenseMode": "linux-clang-x64"
         }
     ],
